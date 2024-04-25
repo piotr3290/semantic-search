@@ -1,34 +1,17 @@
-from os.path import exists
-from keybert import KeyBERT
-from gensim.models import KeyedVectors
-from gensim.scripts.glove2word2vec import glove2word2vec
+import sys
+from threading import Thread
 
+from PyQt5.QtWidgets import QApplication
 
-def load_glove_word2vec():
-    glove2word2vec('glove.6B.100d.txt', 'glove.6B.100d.word2vec.txt')
-
+from app.AppInitializer import AppInitializer
 
 if __name__ == '__main__':
-    if not(exists('glove.6B.100d.word2vec.txt')):
-        load_glove_word2vec()
+    app = QApplication(sys.argv)
 
-    model = KeyedVectors.load_word2vec_format('glove.6B.100d.word2vec.txt')
+    app_initializer = AppInitializer()
+    app_initializer.main_window_loaded.connect(app_initializer.show_main_window)
 
-    search_phrase = 'Semantic search algorithm in text documents'
+    load_window_thread = Thread(target=app_initializer.load_main_window)
+    load_window_thread.start()
 
-    kw_model = KeyBERT()
-
-    keywords = kw_model.extract_keywords(search_phrase)
-    print(f"Selected Keywords: {keywords}")
-
-    synonyms = {}
-
-    for keyword, _ in keywords:
-        try:
-            similar_words = model.most_similar(keyword, topn=5)
-            synonyms[keyword] = [word for word, _ in similar_words]
-        except KeyError:
-            synonyms[keyword] = []
-
-    for keyword, synonym_list in synonyms.items():
-        print(f"Synonyms for {keyword}: {', '.join(synonym_list)}")
+    app.exec_()
