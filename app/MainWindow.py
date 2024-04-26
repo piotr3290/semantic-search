@@ -13,7 +13,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         super(MainWindow, self).__init__()
 
         self.textSearcher = None
-        self.chunk_size = 100
+        self.chunk_size = 1024
         self.file_position = 0
         self.isSearchInputSet = False
         self.selected_file_path = ''

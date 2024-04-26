@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1008</width>
-    <height>548</height>
+    <width>1011</width>
+    <height>544</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -21,7 +21,7 @@
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>20</y>
+      <y>10</y>
       <width>141</width>
       <height>31</height>
      </rect>
@@ -33,10 +33,10 @@
    <widget class="QTextBrowser" name="textBrowser">
     <property name="geometry">
      <rect>
-      <x>10</x>
+      <x>20</x>
       <y>110</y>
-      <width>961</width>
-      <height>371</height>
+      <width>971</width>
+      <height>361</height>
      </rect>
     </property>
     <property name="readOnly">
@@ -46,8 +46,8 @@
    <widget class="QPushButton" name="searchStartButton">
     <property name="geometry">
      <rect>
-      <x>190</x>
-      <y>20</y>
+      <x>180</x>
+      <y>10</y>
       <width>141</width>
       <height>31</height>
      </rect>
@@ -61,17 +61,20 @@
      <rect>
       <x>20</x>
       <y>60</y>
-      <width>931</width>
+      <width>971</width>
       <height>31</height>
      </rect>
+    </property>
+    <property name="placeholderText">
+     <string>Search phrase</string>
     </property>
    </widget>
    <widget class="QPushButton" name="loadMoreButton">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>480</y>
-      <width>961</width>
+      <x>20</x>
+      <y>470</y>
+      <width>971</width>
       <height>23</height>
      </rect>
     </property>
@@ -82,14 +85,14 @@
    <widget class="QPushButton" name="searchNextButton">
     <property name="geometry">
      <rect>
-      <x>370</x>
-      <y>20</y>
+      <x>340</x>
+      <y>10</y>
       <width>141</width>
       <height>31</height>
      </rect>
     </property>
     <property name="text">
-     <string>Search Next</string>
+     <string>Find Next</string>
     </property>
    </widget>
   </widget>
@@ -98,7 +101,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1008</width>
+     <width>1011</width>
      <height>21</height>
     </rect>
    </property>
