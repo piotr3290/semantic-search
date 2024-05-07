@@ -26,6 +26,9 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.searchStartButton.clicked.connect(self.search_start)
         self.loadMoreButton.clicked.connect(self.append_chunk)
         self.searchInput.textChanged.connect(self.search_input_changed)
+        self.radioButtonNone.toggled.connect(lambda: self.textSearcher.set_word_comparator('default'))
+        self.radioButtonStemming.toggled.connect(lambda: self.textSearcher.set_word_comparator('stemming'))
+        self.radioButtonLemmatization.toggled.connect(lambda: self.textSearcher.set_word_comparator('lemmatization'))
 
     def load_models(self):
         self.textSearcher = TextSearcher()
