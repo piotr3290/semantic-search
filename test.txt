@@ -1,0 +1,7 @@
+Thissssssssssss is my small file. In this optimized approach:
+
+We read the file in chunks of a specified buffer size (buffer_size), reducing memory usage compared to reading the entire file at once.
+We perform the search within each chunk individually rather than loading the entire file into memory, which is more efficient for large files.
+We stop searching after finding the first occurrence of the keyword to optimize performance.
+Adjust the buffer_size according to the size of your files and available memory. Larger buffer sizes can improve performance but may consume more memory.
+Experiment with different values to find the optimal balance for your specific use case.

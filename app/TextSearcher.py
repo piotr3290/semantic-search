@@ -1,5 +1,8 @@
 from PyQt5.QtCore import QRegExp
 from PyQt5.QtGui import QTextCursor
+from gensim.utils import tokenize
+from nltk.tokenize import sent_tokenize, word_tokenize
+from sentence_transformers import SentenceTransformer
 
 from app.KeywordsExtractor import KeywordsExtractor
 from app.SynonymsFinder import SynonymsFinder
@@ -13,6 +16,8 @@ class TextSearcher:
         self.keywords_extractor = KeywordsExtractor()
         self.synonyms_finder = SynonymsFinder()
         self.word_comparator = WordComparator()
+        # self.similarity_model = SentenceTransformer("all-mpnet-base-v2")
+        self.similarity_model = SentenceTransformer("all-MiniLM-L6-v2")
 
     def set_search_phrase(self, search_phrase):
         keywords = self.keywords_extractor.get_keywords(search_phrase)
@@ -32,6 +37,7 @@ class TextSearcher:
 
     def construct_words(self, words):
         self.words = set([self.word_comparator.get_word(word) for word in words])
+        print('WORDS')
         print(words)
 
     def search(self, cursor):
@@ -51,3 +57,29 @@ class TextSearcher:
             else:
                 search_cursor.setPosition(search_cursor.selectionEnd())
         return -1, -1
+
+    def search_console(self, sentences):
+        for sentence in sent_tokenize(sentences):
+            sentence_tokens = set(tokenize(sentence, lowercase=True))
+            print(sentence_tokens)
+            print(sentence_tokens.isdisjoint(self.words))
+
+    def tokenize_into_sentences(self, paragraph):
+        return sent_tokenize(paragraph)
+
+    def filter_sentences(self, sentences):
+        results = []
+        for index, sentence in enumerate(sentences):
+            sentence_tokens = set(tokenize(sentence, lowercase=True))
+            print(sentence_tokens)
+            print(self.words)
+            print(sentence_tokens.isdisjoint(self.words))
+            contains_words = not sentence_tokens.isdisjoint(self.words)
+            results.append((index, contains_words, sentence))
+        return results
+
+    def calculate_similarity(self, search_sentence, corpus):
+        embeddings_corpus = self.similarity_model.encode(corpus)
+        embeddings_search_sentence = self.similarity_model.encode(search_sentence)
+        similarities = self.similarity_model.similarity(embeddings_search_sentence, embeddings_corpus)
+        return similarities[0]
