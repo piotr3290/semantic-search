@@ -1,3 +1,4 @@
+from app.FileLoader import load_file
 from app.TextSearcher import TextSearcher
 
 if __name__ == '__main__':
@@ -10,7 +11,13 @@ if __name__ == '__main__':
 # Adjust the buffer_size according to the size of your files and available memory. Larger buffer sizes can improve performance but may consume more memory.
 # Experiment with different values to find the optimal balance for your specific use case.""")
 #     sentences = text_searcher.tokenize_into_sentences("That is a happy dog. That is a very happy person. Today is a sunny day.")
-    filtered_sentences = text_searcher.filter_sentences(["That is a happy dog", "That is a very happy person", "Today is a sunny day"])
+#     filtered_sentences = text_searcher.filter_sentences(["That is a happy dog", "That is a very happy person", "Today is a sunny day"])
+    file_content = load_file('./test.txt')
+    print(file_content)
+    sentences = text_searcher.tokenize_into_sentences(file_content)
+    print(sentences)
+    filtered_sentences = text_searcher.filter_sentences(sentences)
+
     filtered_sentences2 = [filtered_sentence for filtered_sentence in filtered_sentences if filtered_sentence[1]]
     print('filtered_sentences')
     print(filtered_sentences)
