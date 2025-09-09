@@ -1,24 +1,23 @@
-from nltk import SnowballStemmer, wordnet
-
-
 class WordComparator:
-    def get_word(self, token):
+    def get_word(self, token:str)->str:
         return token
 
 
 class Stemmer(WordComparator):
 
     def __init__(self):
-        self.model = SnowballStemmer('english')
+        from nltk import SnowballStemmer
+        self.model:SnowballStemmer = SnowballStemmer('english')
 
-    def get_word(self, token):
+    def get_word(self, token:str)->str:
         return self.model.stem(token)
 
 
 class Lemmatizer(WordComparator):
 
     def __init__(self):
-        self.model = wordnet.WordNetLemmatizer()
+        from nltk import wordnet
+        self.model:wordnet.WordNetLemmatizer = wordnet.WordNetLemmatizer()
 
-    def get_word(self, token):
+    def get_word(self, token:str)->str:
         return self.model.lemmatize(token)
