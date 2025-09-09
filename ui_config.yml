@@ -1,8 +1,0 @@
-ioPaths:
-  -
-    - "ui/*.ui"
-    - "app/ui/%%FILENAME%%_ui.py"
-
-uic_options: --from-imports
-init_package: False
-force: False
