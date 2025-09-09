@@ -1,0 +1,14 @@
+[
+    {
+        "label": 20,
+        "processing_time": 24.740760803222656,
+        "query_processing_time": 0.035700953540003834,
+        "queries_count": 693
+    },
+    {
+        "label": 100,
+        "processing_time": 92.04458284378052,
+        "query_processing_time": 0.13282046586404114,
+        "queries_count": 693
+    }
+]

@@ -1,0 +1,66 @@
+[
+    {
+        "min_threshold": 0.9,
+        "true_positive": 44,
+        "false_positive": 0,
+        "false_negative": 729,
+        "true_negative": 13087,
+        "total": 13860
+    },
+    {
+        "min_threshold": 0.8,
+        "true_positive": 215,
+        "false_positive": 0,
+        "false_negative": 558,
+        "true_negative": 13087,
+        "total": 13860
+    },
+    {
+        "min_threshold": 0.7,
+        "true_positive": 482,
+        "false_positive": 6,
+        "false_negative": 291,
+        "true_negative": 13081,
+        "total": 13860
+    },
+    {
+        "min_threshold": 0.6,
+        "true_positive": 661,
+        "false_positive": 14,
+        "false_negative": 112,
+        "true_negative": 13073,
+        "total": 13860
+    },
+    {
+        "min_threshold": 0.5,
+        "true_positive": 740,
+        "false_positive": 66,
+        "false_negative": 33,
+        "true_negative": 13021,
+        "total": 13860
+    },
+    {
+        "min_threshold": 0.4,
+        "true_positive": 769,
+        "false_positive": 372,
+        "false_negative": 4,
+        "true_negative": 12715,
+        "total": 13860
+    },
+    {
+        "min_threshold": 0.3,
+        "true_positive": 773,
+        "false_positive": 1749,
+        "false_negative": 0,
+        "true_negative": 11338,
+        "total": 13860
+    },
+    {
+        "min_threshold": 0.2,
+        "true_positive": 773,
+        "false_positive": 3141,
+        "false_negative": 0,
+        "true_negative": 9946,
+        "total": 13860
+    }
+]
